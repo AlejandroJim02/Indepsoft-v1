@@ -137,4 +137,30 @@ export class TrabajadorService {
     return this.http.post(this.url_trabajador+"subir-publicacion-galeria",formDataUploadImage, {headers:this.headers_form_token});
   }
 
+  recuperarPasswordTrabajador(data){
+    return new Promise(resolve=>{
+      this.http.put(this.url_trabajador+"recuperar-contrasenia",data).subscribe(
+        data=>{
+          resolve(data);
+        },
+        error=>{
+          resolve(error);
+        }
+      )
+    })
+  }
+
+  cambiarPasswordTrabajador(data){
+    return new Promise(resolve=>{
+      this.http.put(this.url_trabajador+"cambiar-contrasenia-trabajador",data, {headers: this.header_token}).subscribe(
+        data=>{
+          resolve(data);
+        },
+        error=>{
+          resolve(error);
+        }
+      )
+    })
+  }
+
 }

@@ -50,6 +50,14 @@ const routes: Routes = [
   {
     path: 'ver-imagen',
     loadChildren: () => import('./ver-imagen/ver-imagen.module').then( m => m.VerImagenPageModule)
+  },
+  {
+    path: 'recuperar-cpassword',
+    loadChildren: () => import('./recuperar-cpassword/recuperar-cpassword.module').then( m => m.RecuperarCpasswordPageModule)
+  },
+  {
+    path: 'cambiar-password',
+    loadChildren: () => import('./cambiar-password/cambiar-password.module').then( m => m.CambiarPasswordPageModule)
   }
 ];
 

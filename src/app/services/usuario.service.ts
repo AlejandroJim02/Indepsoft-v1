@@ -114,7 +114,33 @@ export class UsuarioService {
     })
   }
 
-  empezarChat(id_solicitante){
+  recuperarPasswordSolicitante(data){
+    return new Promise(resolve=>{
+      this.http.put(this.url_solicitante+"recuperar-contrasenia",data).subscribe(
+        data=>{
+          resolve(data);
+        },
+        error=>{
+          resolve(error);
+        }
+      )
+    })
+  }
+
+  cambiarPasswordSolicitante(data){
+    return new Promise(resolve=>{
+      this.http.put(this.url_solicitante+"cambiar-contrasenia-solicitante",data, {headers: this.header_token}).subscribe(
+        data=>{
+          resolve(data);
+        },
+        error=>{
+          resolve(error);
+        }
+      )
+    })
+  }
+
+  /*empezarChat(id_solicitante){
     return new Promise(resolve=>{
       this.http.post("https://trabinde.herokuapp.com/empezar-chat",id_solicitante).subscribe(
         data=>{
@@ -125,5 +151,5 @@ export class UsuarioService {
         }
       )
     })
-  }
+  }*/
 }

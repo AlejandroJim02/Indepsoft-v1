@@ -7,6 +7,7 @@
   <ion-content>
     <ion-list>
       <ion-item (click)="goPerfil()"><ion-icon class="icon-option" name="person-circle-outline"></ion-icon>Perfil</ion-item>
+      <ion-item (click)="goCambiarPassword()"><ion-icon class="icon-option" name="person-circle-outline"></ion-icon>Cambiar contraseña</ion-item>
       <!--ion-item (click)="goContratos()"><ion-icon class="icon-option" name="document-text-outline"></ion-icon> Contratos</ion-item-->
       <ion-item (click)="goCerrarSesion()"><ion-icon class="icon-option" name="log-out-outline"></ion-icon> Cerrar Sesión</ion-item>
     </ion-list>
@@ -32,10 +33,10 @@
     <ion-card-header class="solicitantecard">
       <ion-header class="solicitantecard-fotoperfil" [ngStyle]="{'background-image':'url('+datos.foto+')'}" ></ion-header>
       <!--img class="solicitantecard-img" [src]="datos.foto" alt=""-->
-      <ion-card-subtitle class="solicitantecard-stars">
+      <!--ion-card-subtitle class="solicitantecard-stars">
         <ion-icon *ngFor="let estrella of estrellas" name="star"></ion-icon>
         <ion-icon *ngFor="let sin_estrella of sin_estrellas" name="star-outline"></ion-icon>
-      </ion-card-subtitle>
+      </ion-card-subtitle-->
       <ion-card-title class="solicitantecard-nombre">{{datos.nombre}} {{datos.apellidoMaterno}} {{datos.apellidoPaterno}}</ion-card-title>
       <ion-card-subtitle *ngIf="datos.nombreRubro!=='Rubro'" class="solicitantecard-datos">{{datos.nombreRubro}}</ion-card-subtitle>
       <ion-card-subtitle *ngIf="datos.nombreRubro=='Rubro'" class="solicitantecard-datos" style="color:red">Actualice su rubro en el perfil o no aparecerá en la lista de solicitantes</ion-card-subtitle>

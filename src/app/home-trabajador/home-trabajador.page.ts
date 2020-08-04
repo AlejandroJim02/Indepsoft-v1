@@ -84,6 +84,11 @@ export class HomeTrabajadorPage {
     this.router.navigate(['/perfil-trabajador']);
   }
 
+  goCambiarPassword(){
+    this.menu.close('sidemenu-trabajador');
+    this.router.navigate(['/cambiar-password']);
+  }
+
   goCerrarSesion(){
     this.menu.close('sidemenu-trabajador');
     localStorage.clear();

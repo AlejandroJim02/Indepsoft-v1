@@ -112,4 +112,8 @@ export class LoginPage implements OnInit {
     this.router.navigate(['/registro'], { queryParams : {tipo:this.data}});
   }
 
+  goForgot(){
+    this.router.navigate(['/recuperar-cpassword'], { queryParams : {tipo:this.data}});
+  }
+
 }

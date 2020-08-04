@@ -111,6 +111,11 @@ export class HomePage implements OnInit {
     this.menu.open('sidemenu');
   }
 
+  goCambioPassword(){
+    this.menu.close('sidemenu');
+    this.router.navigate(['/cambiar-password']);
+  }
+
   goPerfil(){
     this.menu.close('sidemenu');
     this.router.navigate(['/perfil-solicitante']);

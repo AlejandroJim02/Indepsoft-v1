@@ -7,7 +7,7 @@
   <ion-content>
     <ion-list>
       <ion-item (click)="goPerfil()"><ion-icon class="icon-option" name="person-circle-outline"></ion-icon>Perfil</ion-item>
-      <ion-item><ion-icon class="icon-option" name="person-circle-outline"></ion-icon>Cambiar contraseña</ion-item>
+      <ion-item (click)="goCambioPassword()" ><ion-icon class="icon-option" name="person-circle-outline"></ion-icon>Cambiar contraseña</ion-item>
       <!--ion-item (click)="goContratos()"><ion-icon class="icon-option" name="document-text-outline"></ion-icon> Contratos</ion-item-->
       <ion-item (click)="goCerrarSesion()"><ion-icon class="icon-option" name="log-out-outline"></ion-icon> Cerrar Sesión</ion-item>
     </ion-list>
@@ -46,10 +46,10 @@
     <ion-card-header class="solicitantecard">
       <!--img class="solicitantecard-img" src="./assets/img/perfil.png" alt=""-->
       <ion-header class="solicitantecard-fotoperfil" [ngStyle]="{'background-image':'url('+trabajador.foto+')'}"></ion-header>
-      <ion-card-subtitle class="solicitantecard-stars">
+      <!--ion-card-subtitle class="solicitantecard-stars">
         <ion-icon name="star" *ngFor="let item2 of estrellas"></ion-icon>
         <ion-icon name="star-outline" *ngFor="let item3 of oestrellas"></ion-icon>
-      </ion-card-subtitle>
+      </ion-card-subtitle-->
       <ion-card-title class="solicitantecard-nombre">{{trabajador.nombre}} {{trabajador.apellidoPaterno}} {{trabajador.apellidoMaterno}}</ion-card-title>
       <ion-card-subtitle class="solicitantecard-datos">{{trabajador.nombreRubro}}</ion-card-subtitle>
       <ion-card-subtitle class="solicitantecard-datos">{{trabajador.distrito}}</ion-card-subtitle>
