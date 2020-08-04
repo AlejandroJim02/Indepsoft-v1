@@ -40,10 +40,6 @@ const routes: Routes = [
     loadChildren: () => import('./ver-trabajador/ver-trabajador.module').then( m => m.VerTrabajadorPageModule)
   },
   {
-    path: 'chat',
-    loadChildren: () => import('./chat/chat.module').then( m => m.ChatPageModule)
-  },
-  {
     path: 'contratos-solicitante',
     loadChildren: () => import('./contratos-solicitante/contratos-solicitante.module').then( m => m.ContratosSolicitantePageModule)
   },
@@ -54,15 +50,7 @@ const routes: Routes = [
   {
     path: 'ver-imagen',
     loadChildren: () => import('./ver-imagen/ver-imagen.module').then( m => m.VerImagenPageModule)
-  },
-  {
-    path: 'alert-modal',
-    loadChildren: () => import('./modal/alert-modal/alert-modal.module').then( m => m.AlertModalPageModule)
-  },
-  {
-    path: 'alert-trabajador-modal',
-    loadChildren: () => import('./modal/alert-trabajador-modal/alert-trabajador-modal.module').then( m => m.AlertTrabajadorModalPageModule)
-  },
+  }
 ];
 
 @NgModule({

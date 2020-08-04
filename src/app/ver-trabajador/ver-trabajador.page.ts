@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { UsuarioService } from '../services/usuario.service';
 import { ModalController } from '@ionic/angular';
-import { AlertModalPage } from '../modal/alert-modal/alert-modal.page';
 
 @Component({
   selector: 'app-ver-trabajador',
@@ -24,9 +23,8 @@ export class VerTrabajadorPage implements OnInit {
   constructor(
     private route:ActivatedRoute,
     private router:Router,
-    private _usuarioService:UsuarioService,
-    private modalController:ModalController
-  ) {
+    private _usuarioService:UsuarioService
+    ) {
     this.route.queryParams.subscribe(params => {
       if(params && params.id){
         this.id=params.id;
@@ -81,28 +79,17 @@ export class VerTrabajadorPage implements OnInit {
     this.router.navigate(['/ver-imagen'],{ queryParams : {url:url, descripcion:descripcion, id:this.id}});
   }
 
-  async openModal(){
-    const modal= await this.modalController.create({
-      component: AlertModalPage,
-      componentProps: {
-        idTrabajador: this.id
-      }
-    });
-    return await modal.present();
-  }
-
   return(){
     this.router.navigate(['/home']);
   }
 
   contrato(){
-    this.openModal();
     console.log("solicitar contrato");
   }
 
   goChat(){
     console.log("chat");
-    this.router.navigate(['/chat'],{ queryParams : {id:this.id}});
+    //this.router.navigate(['/chat'],{ queryParams : {id:this.id}});
   }
 
 }

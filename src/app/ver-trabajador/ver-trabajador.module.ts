@@ -7,7 +7,6 @@ import { IonicModule } from '@ionic/angular';
 import { VerTrabajadorPageRoutingModule } from './ver-trabajador-routing.module';
 
 import { VerTrabajadorPage } from './ver-trabajador.page';
-import { AlertModalPage } from '../modal/alert-modal/alert-modal.page';
 
 @NgModule({
   imports: [
@@ -16,7 +15,6 @@ import { AlertModalPage } from '../modal/alert-modal/alert-modal.page';
     IonicModule,
     VerTrabajadorPageRoutingModule
   ],
-  declarations: [VerTrabajadorPage, AlertModalPage],
-  entryComponents: [AlertModalPage]
+  declarations: [VerTrabajadorPage]
 })
 export class VerTrabajadorPageModule {}

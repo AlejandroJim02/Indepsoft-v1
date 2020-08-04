@@ -10,8 +10,6 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
-import { AlertTrabajadorModalPage } from './modal/alert-trabajador-modal/alert-trabajador-modal.page';
-import { AlertModalPage } from './modal/alert-modal/alert-modal.page';
  
 const config: SocketIoConfig = { url: 'https://trabinde.herokuapp.com', options: {} };
 
