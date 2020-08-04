@@ -1,0 +1,72 @@
+<ion-menu side="start" menuId="sidemenu" contentId="sidemenu">
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-title>Menú</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <ion-item (click)="goPerfil()"><ion-icon class="icon-option" name="person-circle-outline"></ion-icon>Perfil</ion-item>
+      <ion-item (click)="goContratos()"><ion-icon class="icon-option" name="document-text-outline"></ion-icon> Contratos</ion-item>
+      <ion-item (click)="goCerrarSesion()"><ion-icon class="icon-option" name="log-out-outline"></ion-icon> Cerrar Sesión</ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+<ion-router-outlet [swipeGesture]="false" id="sidemenu"></ion-router-outlet>
+
+<ion-backdrop *ngIf="loader" class="bd-complete" tappable="false"></ion-backdrop>
+<ion-spinner *ngIf="loader" class="spinner" name="bubbles"></ion-spinner>
+<ion-header>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="10">
+        <ion-item>
+          <ion-label>Seleccione</ion-label>
+          <ion-select [(ngModel)]="rubro_value" (ionChange)="listarServiciosRubro()" interface="popover">
+            <!--ion-select-option value="nes">Jardinero</ion-select-option>
+            <ion-select-option value="n64">Carpintero</ion-select-option>
+            <ion-select-option value="ps">Niñera</ion-select-option>
+            <ion-select-option value="genesis">Electriciste</ion-select-option>
+            <ion-select-option value="saturn">Soldador</ion-select-option-->
+            <ion-select-option value="all">Todo</ion-select-option>
+            <ion-select-option *ngFor="let rubro of rubros" [value]="rubro.nombreRubro">{{rubro.nombreRubro}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-col>
+      <ion-col (click)="openMenu()" class="menu" size="2">
+        <ion-icon class="menu-icon" name="menu-outline"></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-header>
+
+<ion-content *ngIf="trabajadores">
+  <ion-card *ngFor="let trabajador of trabajadores">
+    <ion-card-header class="solicitantecard">
+      <!--img class="solicitantecard-img" src="./assets/img/perfil.png" alt=""-->
+      <ion-header class="solicitantecard-fotoperfil" [ngStyle]="{'background-image':'url('+trabajador.foto+')'}"></ion-header>
+      <ion-card-subtitle class="solicitantecard-stars">
+        <ion-icon name="star" *ngFor="let item2 of estrellas"></ion-icon>
+        <ion-icon name="star-outline" *ngFor="let item3 of oestrellas"></ion-icon>
+      </ion-card-subtitle>
+      <ion-card-title class="solicitantecard-nombre">{{trabajador.nombre}} {{trabajador.apellidoPaterno}} {{trabajador.apellidoMaterno}}</ion-card-title>
+      <ion-card-subtitle class="solicitantecard-datos">{{trabajador.nombreRubro}}</ion-card-subtitle>
+      <ion-card-subtitle class="solicitantecard-datos">{{trabajador.distrito}}</ion-card-subtitle>
+      <ion-card-subtitle class="solicitantecard-datos">{{trabajador.telefono}}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <!--ion-card-subtitle>Descripción</ion-card-subtitle-->
+      <!-- Keep close to Nature's heart... and break clear away, once in awhile,
+      and climb a mountain or spend a week in the woods. Wash your spirit clean. -->
+      <ion-card-subtitle class="solicitantecard-button">
+        <ion-button (click)="goVista(trabajador.idTrabajadores)" >
+          Ver
+        </ion-button>
+      </ion-card-subtitle>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+<ion-content *ngIf="!trabajadores">
+  <h4 class="no-data">Aún no existen trabajadores en este rubro.</h4>
+</ion-content>

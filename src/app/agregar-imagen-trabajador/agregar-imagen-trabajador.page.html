@@ -1,0 +1,48 @@
+<ion-backdrop *ngIf="loader" class="bd-complete" tappable="false"></ion-backdrop>
+<ion-spinner *ngIf="loader" class="spinner" name="bubbles"></ion-spinner>
+<ion-header class="ion-no-border">
+  <ion-grid>
+    <ion-row class="registerblock ion-align-items-start">
+      <ion-col size="5"><ion-icon class="registerblock-icon" (click)="return()" name="arrow-back-outline"></ion-icon></ion-col>
+      <ion-col size="7" class="registerblock-title">
+        <b>MI GALERÍA</b>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-header>
+<ion-content>
+  <p class="editimg-text">Toca la imagen para agregar foto, o selecciona una de la galería para verla.</p>
+  <ion-header class="registerblock-foto"
+  [ngStyle]="{'background-image':'url('+ foto_galeria +')'}"
+  (click)="imagen.click()" >
+  </ion-header>
+  <input class="editimg-input" type="file" #imagen accept="image/*" (change)="onFileSelect($event)" />
+  <ion-textarea [(ngModel)]="descripcion_galeria" class="editimg-textarea" placeholder="Ingrese una descripción..."></ion-textarea>
+  <p class="editimg-text" style="color:red" *ngIf="blank_image">No has seleccionado ninguna imagen</p>
+  <p class="editimg-text" style="color: red;" *ngIf="exist_image">Esta imagen ya existe, no se puede agregar.</p>
+  <p class="editimg-text" style="color: red;" *ngIf="exist_descripcion">Agrega una descripción para la imagen.</p>
+  <p class="editimg-text" style="color:green" *ngIf="success_add" >Imagen agregada con éxito</p>
+  <p class="editimg-text" style="color:green" *ngIf="success_remove" >Imagen eliminada con éxito</p>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col *ngFor="let publicacion of datos.publicaciones" size="4">
+        <div class="divclass"
+        [ngStyle]="{'background-image': 'url(' + publicacion.urlimagen + ')'}"
+        (click)="seleccionarImagen(publicacion.urlimagen, publicacion.descripcion)"
+        ></div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-fab class="fabbutton" horizontal="start" vertical="bottom" slot="fixed">
+    <ion-fab-button color="primary" (click)="subirImagen()" >
+      <ion-icon name="add-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <!--ion-fab class="fabbutton" horizontal="end" vertical="bottom" slot="fixed">
+    <ion-fab-button color="primary" (click)="contrato()" >
+      <ion-icon name="remove-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab-->
+</ion-content>

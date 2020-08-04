@@ -1,0 +1,54 @@
+.headertop{
+  &-icon{
+    font-size: 25px;
+    padding: 5%;
+  }
+}
+.solicitantecard{
+  text-align: center;
+  &-fotoperfil{
+    height: 18vh;
+    width: 113px;
+    border-radius: 50%;
+    border:solid 1px black;
+    margin: auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: none;
+  }
+  &-fotoperfil::after{
+    background-image: none;
+  }
+  &-stars{
+    font-size: 30px;
+  }
+  &-nombre{
+    font-size: 20px;
+    padding-bottom: 4%;
+  }
+  &-datos{
+    font-size: 15px;
+  }
+}
+.notification{
+  color:yellow;
+}
+.divclass{
+  height: 15vh;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.fabbutton{
+  padding:5%;
+}
+.no-data{
+  text-align: center;
+  margin: 5vh 20%;
+  font-size: 18px;
+}
+.bd-complete{
+  z-index: 20;
+}

@@ -1,0 +1,26 @@
+<ion-backdrop *ngIf="loader" class="bd-complete" tappable="false"></ion-backdrop>
+<ion-spinner *ngIf="loader" class="spinner" name="bubbles"></ion-spinner>
+<ion-content>
+  <ion-grid>
+    <ion-row class="loginblock ion-align-items-start">
+      <ion-col size="12"><ion-icon class="loginblock-icon" (click)="return()" name="arrow-back-outline"></ion-icon></ion-col>
+      <ion-col size="12" class="loginblock_profile">
+        <img *ngIf="data == 'trabajador'" class="loginblock_profile-img" src="./assets/img/T.png" alt="">
+        <img *ngIf="data == 'solicitante'" class="loginblock_profile-img" src="./assets/img/S.png" alt="">
+        <ion-item class="loginblock_profile-input">
+          <ion-label position="floating">Usuario</ion-label>
+          <ion-input [(ngModel)]="usuario"></ion-input>
+        </ion-item>
+        <ion-item class="loginblock_profile-input">
+          <ion-label position="floating">Contraseña</ion-label>
+          <ion-input [(ngModel)]="password" type="password"></ion-input>
+        </ion-item>
+        <p class="mensaje-error" *ngIf="mensaje" >{{mensaje_contenido}}</p>
+        <ion-button class="loginblock_profile-login" (click)="login()" fill="solid">
+          Iniciar Sesión
+        </ion-button>
+        <p class="loginblock_profile-register" (click)="goRegistro()">O Regístrate</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

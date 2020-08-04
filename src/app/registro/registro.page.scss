@@ -1,0 +1,60 @@
+.registerblock{
+    &-icon{
+        font-size: 25px;
+        padding: 5%;
+    }
+    &-title{
+        padding: 4% 4% 4% 0;
+    }
+    &_profile{
+        text-align: center;
+        &-img{
+            height: 18vh;
+            border-radius: 50%; 
+        }
+        &-imgadd{
+            height: 18vh;
+            width: 113px;
+            border-radius: 50%;
+            border:solid 1px black;
+            margin: auto;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-image: none;
+            &-input{
+                display: none;
+            }
+        }
+        &-imgadd::after{
+            background-image: none;
+        }
+        &-input{
+            width: 90%;
+            margin: auto;
+            &-grid{
+                --ion-grid-padding: 0;
+                width: 100%;
+                margin: 0;
+            }
+            &-icon{
+                padding-top: 4vh;
+                font-size:25px;
+            }
+            &-alert{
+                color:red;
+                font-size: 15px;
+            }
+        }
+        &_register{
+            height: 16vh;
+            --border-radius: 50%;
+            &-icon{
+                font-size: 70px;
+            }
+        }
+    }
+}
+.bd-complete{
+    z-index: 20;
+}

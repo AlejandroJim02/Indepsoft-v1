@@ -1,0 +1,117 @@
+<ion-backdrop *ngIf="loader" class="bd-complete" tappable="false"></ion-backdrop>
+<ion-spinner *ngIf="loader" class="spinner" name="bubbles"></ion-spinner>
+<ion-header class="ion-no-border">
+  <ion-grid>
+    <ion-row class="registerblock ion-align-items-start">
+      <ion-col size="3"><ion-icon class="registerblock-icon" (click)="return()" name="arrow-back-outline"></ion-icon></ion-col>
+      <ion-col size="7" class="registerblock-title">
+        <b>BIENVENIDO A TU PERFIL</b>
+      </ion-col>
+      <ion-col (click)="goAgregarImagen()" size="2">
+        <img class="registerblock_profile-add" src="./assets/img/add-image.png" alt="">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-header>
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" class="registerblock_profile">
+        <p>Toca la imagen para cambiar tu foto</p>
+        <ion-header class="registerblock-fotoperfil"
+          (click)="profile.click()"
+          [ngStyle]="{'background-image':'url('+datos.foto+')'}">
+        </ion-header>
+        <input class="registerblock_profile-imginput" type="file" #profile accept="image/*" (change)="onFileSelect($event)" />
+        <!--img class="registerblock_profile-img" src="./assets/img/perfil.png" alt=""-->
+        <!--img class="registerblock_profile-add" src="./assets/img/add-image.png" alt=""-->
+        <ion-item class="registerblock_profile-input">
+          <ion-label position="floating">Nombres</ion-label>
+          <ion-input [(ngModel)]="datos.nombre" disabled="true"></ion-input>
+        </ion-item>
+        <ion-item class="registerblock_profile-input">
+          <ion-label position="floating">Apellido Paterno</ion-label>
+          <ion-input [(ngModel)]="datos.apellidoPaterno" disabled="true"></ion-input>
+        </ion-item>
+        <ion-item class="registerblock_profile-input">
+          <ion-label position="floating">Apellido Materno</ion-label>
+          <ion-input [(ngModel)]="datos.apellidoMaterno" disabled="true"></ion-input>
+        </ion-item>
+        <ion-item class="registerblock_profile-input">
+          <ion-label position="floating">Número de DNI</ion-label>
+          <ion-input [(ngModel)]="datos.dni" disabled="true" type="text"></ion-input>
+        </ion-item>
+        <ion-item class="registerblock_profile-input">
+          <ion-label position="floating">Rubro</ion-label>
+          <ion-select [(ngModel)]="datos.nombreRubro" interface="action-sheet" cancelText="Cancelar" placeholder="Seleccione rubro">
+            <!--ion-select-option value="Rubro" disabled="true">Ingrese un rubro</ion-select-option-->
+            <ion-select-option *ngFor="let rubro of rubros" [value]="rubro.nombreRubro">{{rubro.nombreRubro}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item class="registerblock_profile-input">
+          <ion-label position="floating">Distrito</ion-label>
+          <ion-input [(ngModel)]="datos.distrito" disabled="true"></ion-input>
+        </ion-item>
+        <!--ion-item class="registerblock_profile-input">
+          <ion-label>Distrito</ion-label>
+          <ion-select disabled="true" value="distrito" interface="action-sheet" cancelText="Cancelar">
+            <ion-select-option value="villa">Cercado de Lima</ion-select-option>
+            <ion-select-option value="barranco">Ancón</ion-select-option>
+            <ion-select-option value="callao">Ate Vitarte</ion-select-option>
+            <ion-select-option value="villa">Barranco</ion-select-option>
+            <ion-select-option value="barranco">Breña</ion-select-option>
+            <ion-select-option value="callao">Carabayllo</ion-select-option>
+            <ion-select-option value="villa">Comas</ion-select-option>
+            <ion-select-option value="barranco">Chaclacayo</ion-select-option>
+            <ion-select-option value="callao">Chorrillos</ion-select-option>
+            <ion-select-option value="villa">El Agustino</ion-select-option>
+            <ion-select-option value="barranco">Jesús María</ion-select-option>
+            <ion-select-option value="callao">La Molina</ion-select-option>
+            <ion-select-option value="villa">La Victoria</ion-select-option>
+            <ion-select-option value="barranco">Lince</ion-select-option>
+            <ion-select-option value="callao">Lurigancho (Chosica)</ion-select-option>
+            <ion-select-option value="villa">Lurín</ion-select-option>
+            <ion-select-option value="barranco">Magdalena del Mar</ion-select-option>
+            <ion-select-option value="villa">Miraflores</ion-select-option>
+            <ion-select-option value="barranco">Pachacamac</ion-select-option>
+            <ion-select-option value="callao">Pucusana</ion-select-option>
+            <ion-select-option value="villa">Pueblo Libre</ion-select-option>
+            <ion-select-option value="barranco">Puente Piedra</ion-select-option>
+            <ion-select-option value="villa">Punta Negra</ion-select-option>
+            <ion-select-option value="barranco">Punta Hermosa</ion-select-option>
+            <ion-select-option value="callao">Rímac</ion-select-option>
+            <ion-select-option value="villa">San Bartolo</ion-select-option>
+            <ion-select-option value="barranco">San Isidro</ion-select-option>
+            <ion-select-option value="villa">Independencia</ion-select-option>
+            <ion-select-option value="barranco">San Juan de Miraflores</ion-select-option>
+            <ion-select-option value="callao">San Luis</ion-select-option>
+            <ion-select-option value="villa">San Martín de Porres</ion-select-option>
+            <ion-select-option value="barranco">San Miguel</ion-select-option>
+            <ion-select-option value="callao">Santiago de Surco</ion-select-option>
+            <ion-select-option value="villa">Surquillo</ion-select-option>
+            <ion-select-option value="barranco">Villa María del Triunfo</ion-select-option>
+            <ion-select-option value="callao">San Juan de Lurigancho</ion-select-option>
+            <ion-select-option value="villa">Santa María del Mar</ion-select-option>
+            <ion-select-option value="barranco">Santa Rosa</ion-select-option>
+            <ion-select-option value="callao">Los Olivos</ion-select-option>
+            <ion-select-option value="villa">Cieneguilla</ion-select-option>
+            <ion-select-option value="barranco">San Borja</ion-select-option>
+            <ion-select-option value="callao">Villa El Salvador</ion-select-option>
+            <ion-select-option value="villa">Santa Anita</ion-select-option>
+            <ion-select-option value="barranco">Ricardo Palma</ion-select-option>
+            <ion-select-option value="callao">Santa Eulalia</ion-select-option>
+          </ion-select>
+        </ion-item-->
+        <ion-item class="registerblock_profile-input">
+          <ion-label position="floating">Correo</ion-label>
+          <ion-input [(ngModel)]="datos.emailTrabajadores" disabled="true"></ion-input>
+        </ion-item>
+        <p *ngIf="error" style="color:red">Ocurrió un error actualizando el perfil.</p>
+        <p *ngIf="success" style="color:green">Usuario actualizado correctamente.</p>
+        <ion-button (click)="actualizarDatos()" class="registerblock_profile_register" fill="clear">
+          <ion-icon class="registerblock_profile_register-icon" name="checkmark-circle-outline"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

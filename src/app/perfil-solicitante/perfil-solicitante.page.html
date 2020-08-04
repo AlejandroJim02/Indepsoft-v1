@@ -1,0 +1,102 @@
+<ion-backdrop *ngIf="loader" class="bd-complete" tappable="false"></ion-backdrop>
+<ion-spinner *ngIf="loader" class="spinner" name="bubbles"></ion-spinner>
+<ion-header class="ion-no-border">
+  <ion-grid>
+    <ion-row class="registerblock ion-align-items-start">
+      <ion-col size="3"><ion-icon class="registerblock-icon" (click)="return()" name="arrow-back-outline"></ion-icon></ion-col>
+      <ion-col size="9" class="registerblock-title">
+        <b>BIENVENIDO A TU PERFIL</b>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-header>
+<ion-content>
+  <ion-grid>
+    <ion-row class="registerblock ion-align-items-start">
+      <ion-col size="12" class="registerblock_profile">
+        <img class="registerblock_profile-img" src="./assets/img/perfil.png" alt="">
+        <ion-item class="registerblock_profile-input">
+          <ion-label position="floating">Nombres</ion-label>
+          <ion-input [value]="datos_perfil.nombre" disabled="true"></ion-input>
+        </ion-item>
+        <ion-item class="registerblock_profile-input">
+          <ion-label position="floating">Apellido Paterno</ion-label>
+          <ion-input [value]="datos_perfil.apellidoPaterno" disabled="true"></ion-input>
+        </ion-item>
+        <ion-item class="registerblock_profile-input">
+          <ion-label position="floating">Apellido Materno</ion-label>
+          <ion-input [value]="datos_perfil.apellidoMaterno" disabled="true"></ion-input>
+        </ion-item>
+        <ion-item class="registerblock_profile-input">
+          <ion-label position="floating">Número de DNI</ion-label>
+          <ion-input [value]="datos_perfil.dni" disabled="true" type="text"></ion-input>
+        </ion-item>
+        <ion-item class="registerblock_profile-input">
+          <ion-label position="floating">Distrito</ion-label>
+          <ion-input [value]="datos_perfil.distrito" disabled="true"></ion-input>
+        </ion-item>
+        <!--ion-item class="registerblock_profile-input">
+          <ion-label position="floating">Ingrese su rubro</ion-label>
+          <ion-input></ion-input>
+        </ion-item-->
+        <!--ion-item class="registerblock_profile-input">
+          <ion-label>Distrito</ion-label>
+          <ion-select disabled="true" value="distrito" interface="action-sheet" cancelText="Cancelar">
+            <ion-select-option value="villa">Cercado de Lima</ion-select-option>
+            <ion-select-option value="barranco">Ancón</ion-select-option>
+            <ion-select-option value="callao">Ate Vitarte</ion-select-option>
+            <ion-select-option value="villa">Barranco</ion-select-option>
+            <ion-select-option value="barranco">Breña</ion-select-option>
+            <ion-select-option value="callao">Carabayllo</ion-select-option>
+            <ion-select-option value="villa">Comas</ion-select-option>
+            <ion-select-option value="barranco">Chaclacayo</ion-select-option>
+            <ion-select-option value="callao">Chorrillos</ion-select-option>
+            <ion-select-option value="villa">El Agustino</ion-select-option>
+            <ion-select-option value="barranco">Jesús María</ion-select-option>
+            <ion-select-option value="callao">La Molina</ion-select-option>
+            <ion-select-option value="villa">La Victoria</ion-select-option>
+            <ion-select-option value="barranco">Lince</ion-select-option>
+            <ion-select-option value="callao">Lurigancho (Chosica)</ion-select-option>
+            <ion-select-option value="villa">Lurín</ion-select-option>
+            <ion-select-option value="barranco">Magdalena del Mar</ion-select-option>
+            <ion-select-option value="villa">Miraflores</ion-select-option>
+            <ion-select-option value="barranco">Pachacamac</ion-select-option>
+            <ion-select-option value="callao">Pucusana</ion-select-option>
+            <ion-select-option value="villa">Pueblo Libre</ion-select-option>
+            <ion-select-option value="barranco">Puente Piedra</ion-select-option>
+            <ion-select-option value="villa">Punta Negra</ion-select-option>
+            <ion-select-option value="barranco">Punta Hermosa</ion-select-option>
+            <ion-select-option value="callao">Rímac</ion-select-option>
+            <ion-select-option value="villa">San Bartolo</ion-select-option>
+            <ion-select-option value="barranco">San Isidro</ion-select-option>
+            <ion-select-option value="villa">Independencia</ion-select-option>
+            <ion-select-option value="barranco">San Juan de Miraflores</ion-select-option>
+            <ion-select-option value="callao">San Luis</ion-select-option>
+            <ion-select-option value="villa">San Martín de Porres</ion-select-option>
+            <ion-select-option value="barranco">San Miguel</ion-select-option>
+            <ion-select-option value="callao">Santiago de Surco</ion-select-option>
+            <ion-select-option value="villa">Surquillo</ion-select-option>
+            <ion-select-option value="barranco">Villa María del Triunfo</ion-select-option>
+            <ion-select-option value="callao">San Juan de Lurigancho</ion-select-option>
+            <ion-select-option value="villa">Santa María del Mar</ion-select-option>
+            <ion-select-option value="barranco">Santa Rosa</ion-select-option>
+            <ion-select-option value="callao">Los Olivos</ion-select-option>
+            <ion-select-option value="villa">Cieneguilla</ion-select-option>
+            <ion-select-option value="barranco">San Borja</ion-select-option>
+            <ion-select-option value="callao">Villa El Salvador</ion-select-option>
+            <ion-select-option value="villa">Santa Anita</ion-select-option>
+            <ion-select-option value="barranco">Ricardo Palma</ion-select-option>
+            <ion-select-option value="callao">Santa Eulalia</ion-select-option>
+          </ion-select>
+        </ion-item-->
+        <ion-item class="registerblock_profile-input">
+          <ion-label position="floating">Correo</ion-label>
+          <ion-input [value]="datos_perfil.emailSolicitantes" disabled="true"></ion-input>
+        </ion-item>
+        <!--ion-button class="registerblock_profile_register" fill="clear">
+          <ion-icon class="registerblock_profile_register-icon" name="checkmark-circle-outline"></ion-icon>
+        </ion-button-->
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

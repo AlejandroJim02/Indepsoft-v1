@@ -1,0 +1,54 @@
+<ion-menu side="start" menuId="sidemenu-trabajador" contentId="sidemenu-trabajador">
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-title>Menú</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <ion-item (click)="goPerfil()"><ion-icon class="icon-option" name="person-circle-outline"></ion-icon>Perfil</ion-item>
+      <ion-item (click)="goContratos()"><ion-icon class="icon-option" name="document-text-outline"></ion-icon> Contratos</ion-item>
+      <ion-item (click)="goCerrarSesion()"><ion-icon class="icon-option" name="log-out-outline"></ion-icon> Cerrar Sesión</ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+<ion-router-outlet [swipeGesture]="false" id="sidemenu-trabajador"></ion-router-outlet>
+
+<ion-backdrop *ngIf="loader" class="bd-complete" tappable="false"></ion-backdrop>
+<ion-spinner *ngIf="loader" class="spinner" name="bubbles"></ion-spinner>
+<ion-header class="ion-no-border">
+  <ion-grid>
+    <ion-row class="headertop ion-align-items-start">
+      <ion-col size="10"><!--ion-icon class="headertop-icon" (click)="return()" name="arrow-back-outline"></ion-icon--></ion-col>
+      <ion-col (click)="openMenu()" class="menu" size="2">
+        <ion-icon class="menu-icon" name="menu-outline"></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header class="solicitantecard">
+      <ion-header class="solicitantecard-fotoperfil" [ngStyle]="{'background-image':'url('+datos.foto+')'}" ></ion-header>
+      <!--img class="solicitantecard-img" [src]="datos.foto" alt=""-->
+      <ion-card-subtitle class="solicitantecard-stars">
+        <ion-icon *ngFor="let estrella of estrellas" name="star"></ion-icon>
+        <ion-icon *ngFor="let sin_estrella of sin_estrellas" name="star-outline"></ion-icon>
+      </ion-card-subtitle>
+      <ion-card-title class="solicitantecard-nombre">{{datos.nombre}} {{datos.apellidoMaterno}} {{datos.apellidoPaterno}}</ion-card-title>
+      <ion-card-subtitle *ngIf="datos.nombreRubro!=='Rubro'" class="solicitantecard-datos">{{datos.nombreRubro}}</ion-card-subtitle>
+      <ion-card-subtitle *ngIf="datos.nombreRubro=='Rubro'" class="solicitantecard-datos" style="color:red">Actualice su rubro en el perfil o no aparecerá en la lista de solicitantes</ion-card-subtitle>
+      <ion-card-subtitle class="solicitantecard-datos">{{datos.distrito}}</ion-card-subtitle>
+      <ion-card-subtitle class="solicitantecard-datos">{{datos.telefono}}</ion-card-subtitle>
+    </ion-card-header>
+  </ion-card>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col *ngFor="let publicacion of datos.publicaciones" size="4">
+        <div class="divclass" (click)="verImagen(publicacion.urlimagen, publicacion.descripcion)" [ngStyle]="{'background-image': 'url(' + publicacion.urlimagen + ')'}"></div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,44 @@
+.registerblock{
+    &-icon{
+        font-size: 25px;
+        padding: 5%;
+    }
+    &-title{
+        padding: 4% 4% 4% 0;
+    }
+    &-foto{
+        height: 22vh;
+        width: 40%;
+        border:solid 1px black;
+        margin: 5% auto;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-image: none;
+    }
+    &-fotoperfil::after{
+        background-image: none;
+    }
+}
+.editimg{
+    &-text{
+        margin: 5% 5%;
+        text-align: center;
+    }
+    &-textarea{
+        padding: 3% 10%;
+    }
+    &-input{
+        display: none;
+    }
+}
+.divclass{
+    height: 15vh;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.bd-complete{
+    z-index: 20;
+}

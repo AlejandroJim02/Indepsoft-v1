@@ -1,0 +1,33 @@
+.loginblock{
+    &-icon{
+        font-size: 25px;
+        margin: 5%;
+    }
+    &_profile{
+        text-align: center;
+        &-img{
+            height: 18vh;
+            border-radius: 50%; 
+        }
+        &-input{
+            width: 90%;
+            margin: auto;
+        }
+        &-login{
+            width: 90%;
+            margin-top: 10%;
+        }
+        &-register{
+            text-decoration: underline;
+            width: 30%;
+            margin: 5% auto;
+        }
+    }
+    
+}
+.mensaje-error{
+    color:red;
+}
+.bd-complete{
+    z-index: 20;
+}
