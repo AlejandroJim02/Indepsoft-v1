@@ -17,7 +17,7 @@
   (click)="imagen.click()" >
   </ion-header>
   <input class="editimg-input" type="file" #imagen accept="image/*" (change)="onFileSelect($event)" />
-  <ion-textarea [(ngModel)]="descripcion_galeria" class="editimg-textarea" placeholder="Ingrese una descripción..."></ion-textarea>
+  <ion-textarea [(ngModel)]="descripcion_galeria" [disabled]="desc_flag" class="editimg-textarea" placeholder="Ingrese una descripción..."></ion-textarea>
   <p class="editimg-text" style="color:red" *ngIf="blank_image">No has seleccionado ninguna imagen</p>
   <p class="editimg-text" style="color: red;" *ngIf="exist_image">Esta imagen ya existe, no se puede agregar.</p>
   <p class="editimg-text" style="color: red;" *ngIf="exist_descripcion">Agrega una descripción para la imagen.</p>

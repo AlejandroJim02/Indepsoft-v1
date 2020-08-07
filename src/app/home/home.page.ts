@@ -75,10 +75,16 @@ export class HomePage implements OnInit {
           this.loader=false;
         }else{
           console.log("error listando servicios");
+          localStorage.clear();
+          this.loader=false;
+          this.router.navigate(['/switch']);
         }
         console.log(data);
       },
       error=>{
+        localStorage.clear();
+        this.loader=false;
+        this.router.navigate(['/switch']);
         console.log(<any>error);
       }
     )

@@ -25,6 +25,7 @@ export class AgregarImagenTrabajadorPage implements OnInit {
   file:any;
   loader=false;
   can_add=false;
+  desc_flag=false;
   constructor(
     private router:Router,
     private _trabajadorService:TrabajadorService
@@ -34,6 +35,7 @@ export class AgregarImagenTrabajadorPage implements OnInit {
   }
   
   ionViewWillEnter(){
+    this.desc_flag=false;
     this.usuario=JSON.parse(localStorage.getItem('usuario_trabajador'))
     this.listarDatosTrabajador();
   }
@@ -66,6 +68,7 @@ export class AgregarImagenTrabajadorPage implements OnInit {
     this.can_add=false;
     this.foto_galeria=url;
     this.descripcion_galeria=descripcion;
+    this.desc_flag=true;
   }
 
   onFileSelect(event) {
@@ -80,6 +83,8 @@ export class AgregarImagenTrabajadorPage implements OnInit {
         this.foto_galeria = reader.result;
         this.can_add=true;
         this.loader=false;
+        this.desc_flag=false;
+        this.descripcion_galeria="";
       }
     }else{
       this.loader=false;
@@ -100,6 +105,7 @@ export class AgregarImagenTrabajadorPage implements OnInit {
               this.can_add=false;
               this.foto_galeria="./assets/img/add-image.png";
               this.success_add=true;
+              this.desc_flag=false;
             }else{
               console.log("error subiendo imagen");
             }
